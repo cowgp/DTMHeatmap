@@ -34,22 +34,23 @@
     if (value <= 0) {
         *red = *green = *blue = *alpha = 0;
     } else if (value < 0.125) {
-        *red = *green = 0;
-        *blue = 4 * (value + 0.125);
-    } else if (value < 0.375) {
-        *red = 0;
+        *red = 0.4;
         *green = 4 * (value - 0.125);
-        *blue = 1;
+        *blue = 0;
+    } else if (value < 0.375) {
+        *red = 0.4;
+        *green = 4 * (value - 0.125);
+        *blue = 0;
     } else if (value < 0.625) {
         *red = 4 * (value - 0.375);
         *green = 1;
-        *blue = 1 - 4 * (value - 0.375);
+        *blue = 0;
     } else if (value < 0.875) {
         *red = 1;
         *green = 1 - 4 * (value - 0.625);
         *blue = 0;
     } else {
-        *red = MAX(1 - 4 * (value - 0.875), 0.5);
+        *red = 1;
         *green = *blue = 0;
     }
     
